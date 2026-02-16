@@ -8,13 +8,11 @@ align-items: center;
 height: 100vh;
 overflow: hidden;
 }
-
 .tet-container {
 position: relative;
 text-align: center;
 width: 100%;
 }
-
 .blossom-top {
 position: absolute;
 top: -160px; left: 0; width: 100%; height: 320px;
@@ -22,7 +20,6 @@ background: url('') no-repeat top center;
 background-size: contain;
 pointer-events: none;
 }
-
 .lantern {
 position: absolute;
 width: 70px; height: 110px;
@@ -31,7 +28,6 @@ background-size: contain;
 }
 .lantern-left { top: 40%; left: 5%; }
 .lantern-right { top: 35%; right: 5%; }
-
 .coin {
 position: absolute;
 width: 55px; height: 55px;
@@ -42,19 +38,16 @@ animation: float 4s ease-in-out infinite;
 .coin-1 { top: 20%; left: 15%; }
 .coin-2 { top: 10%; right: 15%; animation-delay: 1s; }
 .coin-3 { bottom: 10%; left: 20%; animation-delay: 2s; }
-
 @keyframes float {
 0%, 100% { transform: translateY(0); }
 50% { transform: translateY(-20px); }
 }
-
 .main-title {
 color: #ffcc00;
 font-size: 3rem;
 text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
 margin-bottom: 25px;
 }
-
 .wheel-outer {
 display: inline-block;
 padding: 12px;
@@ -63,7 +56,6 @@ border-radius: 50%;
 box-shadow: 0 0 40px rgba(255, 204, 0, 0.4);
 border: 5px solid #b38f00;
 }
-
 .pointer {
 position: absolute;
 top: -20px; left: 50%;
@@ -71,9 +63,7 @@ transform: translateX(-50%);
 font-size: 50px;
 color: #ffd700;
 z-index: 10;
-text-shadow: 0 2px 5px #000;
 }
-
 #spin-btn {
 margin: 35px auto;
 background: linear-gradient(180deg, #ff4d4d 0%, #b30000 100%);
@@ -84,10 +74,7 @@ font-size: 26px;
 font-weight: bold;
 border-radius: 50px;
 cursor: pointer;
-box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-transition: 0.3s;
 }
-
 .popup {
 position: fixed;
 top: 0; left: 0; width: 100%; height: 100%;
@@ -104,4 +91,9 @@ border-radius: 25px;
 color: #ffcc00;
 max-width: 450px;
 text-align: center;
+}
+#close-btn {
+background: #ffcc00; color: #800000; border: none;
+padding: 12px 35px; font-weight: bold; border-radius: 25px;
+cursor: pointer; margin-top: 25px; font-size: 18px;
 }
