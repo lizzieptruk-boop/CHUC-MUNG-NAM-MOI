@@ -1,93 +1,107 @@
 body {
-    background: #4a0000; /* Đỏ sậm sang trọng */
-    background-image: url('https://img.freepik.com/free-vector/flat-vietnamese-new-year-background_23-2148810235.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+background: radial-gradient(circle, #cc0000 0%, #660000 100%);
+margin: 0;
+font-family: 'Segoe UI', Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+overflow: hidden;
 }
 
 .tet-container {
-    text-align: center;
-    width: 100%;
+position: relative;
+text-align: center;
+width: 100%;
+}
+
+.blossom-top {
+position: absolute;
+top: -160px; left: 0; width: 100%; height: 320px;
+background: url('') no-repeat top center;
+background-size: contain;
+pointer-events: none;
+}
+
+.lantern {
+position: absolute;
+width: 70px; height: 110px;
+background: url('') no-repeat;
+background-size: contain;
+}
+.lantern-left { top: 40%; left: 5%; }
+.lantern-right { top: 35%; right: 5%; }
+
+.coin {
+position: absolute;
+width: 55px; height: 55px;
+background: url('') no-repeat;
+background-size: contain;
+animation: float 4s ease-in-out infinite;
+}
+.coin-1 { top: 20%; left: 15%; }
+.coin-2 { top: 10%; right: 15%; animation-delay: 1s; }
+.coin-3 { bottom: 10%; left: 20%; animation-delay: 2s; }
+
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
 }
 
 .main-title {
-    color: #ffcc00;
-    font-size: 3rem;
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
+color: #ffcc00;
+font-size: 3rem;
+text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+margin-bottom: 25px;
 }
 
-.wheel-box {
-    position: relative;
-    display: inline-block;
-    border: 15px solid #ffcc00;
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+.wheel-outer {
+display: inline-block;
+padding: 12px;
+background: #ffd700;
+border-radius: 50%;
+box-shadow: 0 0 40px rgba(255, 204, 0, 0.4);
+border: 5px solid #b38f00;
 }
 
 .pointer {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 50px;
-    color: #ffcc00;
-    z-index: 10;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+position: absolute;
+top: -20px; left: 50%;
+transform: translateX(-50%);
+font-size: 50px;
+color: #ffd700;
+z-index: 10;
+text-shadow: 0 2px 5px #000;
 }
 
 #spin-btn {
-    display: block;
-    margin: 30px auto;
-    background: linear-gradient(180deg, #ff4d4d 0%, #cc0000 100%);
-    color: white;
-    border: 3px solid #ffcc00;
-    padding: 15px 50px;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.2s;
+margin: 35px auto;
+background: linear-gradient(180deg, #ff4d4d 0%, #b30000 100%);
+color: white;
+border: 3px solid #ffcc00;
+padding: 15px 55px;
+font-size: 26px;
+font-weight: bold;
+border-radius: 50px;
+cursor: pointer;
+box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+transition: 0.3s;
 }
 
-#spin-btn:hover { transform: scale(1.1); }
-
-/* Popup */
 .popup {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 100;
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100%;
+background: rgba(0,0,0,0.9);
+display: flex; justify-content: center; align-items: center;
+z-index: 100;
 }
-
 .hidden { display: none !important; }
-
 .popup-content {
-    background: #800000;
-    border: 5px solid #ffcc00;
-    padding: 40px;
-    border-radius: 20px;
-    color: #ffcc00;
-    max-width: 400px;
-    text-align: center;
-}
-
-#close-btn {
-    background: #ffcc00;
-    color: #800000;
-    border: none;
-    padding: 10px 30px;
-    font-weight: bold;
-    border-radius: 20px;
-    cursor: pointer;
+background: #800000;
+border: 5px solid #ffcc00;
+padding: 40px;
+border-radius: 25px;
+color: #ffcc00;
+max-width: 450px;
+text-align: center;
 }
