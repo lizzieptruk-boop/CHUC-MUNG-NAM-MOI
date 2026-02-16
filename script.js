@@ -1,11 +1,5 @@
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
-const spinBtn = document.getElementById("spin-btn");
-const popup = document.getElementById("result-popup");
-const closeBtn = document.getElementById("close-btn");
-const wishText = document.getElementById("wish-text");
-const fwSound = document.getElementById("firework-sound");
-
 const wishes = [
 "Chúc năm mới an khang, tâm sáng – trí vững – đường dài thênh thang, việc gì cũng hanh thông",
 "Năm mới chúc gia đình luôn bình an, nhà cửa ấm êm, tài lộc gõ cửa mỗi ngày",
@@ -21,51 +15,33 @@ const wishes = [
 
 const colors = ["#b30000", "#d4af37", "#b30000", "#d4af37", "#b30000", "#d4af37", "#b30000", "#d4af37", "#b30000", "#d4af37"];
 let currentRotation = 0;
-let isSpinning = false;
 
-function drawWheel() {
-const sliceAngle = (2 * Math.PI) / 10;
-ctx.clearRect(0, 0, 500, 500);
+function draw() {
+const angle = (2 * Math.PI) / 10;
 for (let i = 0; i < 10; i++) {
 ctx.beginPath();
 ctx.fillStyle = colors[i];
 ctx.moveTo(250, 250);
-ctx.arc(250, 250, 250, i * sliceAngle, (i + 1) * sliceAngle);
+ctx.arc(250, 250, 250, i * angle, (i + 1) * angle);
 ctx.fill();
-ctx.strokeStyle = "#ffcc00";
-ctx.lineWidth = 2;
-ctx.stroke();
 ctx.save();
 ctx.translate(250, 250);
-ctx.rotate(i * sliceAngle + sliceAngle / 2);
-ctx.fillStyle = colors[i] === "#d4af37" ? "#800000" : "#ffffff";
-ctx.font = "bold 38px Arial";
-ctx.textAlign = "center";
+ctx.rotate(i * angle + angle / 2);
+ctx.fillStyle = colors[i] === "#d4af37" ? "#800000" : "#fff";
+ctx.font = "bold 40px Arial";
 ctx.fillText(i + 1, 180, 15);
 ctx.restore();
 }
 }
 
-spinBtn.onclick = () => {
-if (isSpinning) return;
-isSpinning = true;
-const randomSpin = Math.floor(Math.random() * 3600) + 2500;
-currentRotation += randomSpin;
-canvas.style.transition = "transform 4s cubic-bezier(0.15, 0, 0.15, 1)";
+document.getElementById("spin-btn").onclick = function() {
+const spin = Math.floor(Math.random() * 3600) + 3000;
+currentRotation += spin;
+canvas.style.transition = "transform 4s cubic-bezier(0.1, 0, 0.1, 1)";
 canvas.style.transform = rotate(${currentRotation}deg);
-setTimeout(() => {
-const actualDeg = currentRotation % 360;
-let index = Math.floor(((360 - actualDeg + 270) % 360) / 36);
-wishText.innerText = wishes[index];
-popup.classList.remove("hidden");
-fwSound.play().catch(e => console.log("Cần click"));
-isSpinning = false;
-}, 4000);
+
 };
 
-closeBtn.onclick = () => {
-popup.classList.add("hidden");
-fwSound.pause();
-};
+document.getElementById("close-btn").onclick = () => document.getElementById("result-popup").classList.add("hidden");
 
-drawWheel();
+draw();
